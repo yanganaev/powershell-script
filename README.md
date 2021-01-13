@@ -20,14 +20,17 @@
 `$adminCredential = Get-Credential -Message "Enter a username and password for the VM administrator."`
 
 6. Создайте цикл, который выполняется три раза:
-`For ($i = 1; $i -le 3; $i++) 
+```console
+For ($i = 1; $i -le 3; $i++)
 {
 
-}`
-
+}
+```
 7. В теле этого цикла создайте имя для каждой виртуальной машины, сохраните его в переменной и выведите на консоль:
-`$vmName = "ConferenceDemo" + $i
-Write-Host "Creating VM: " $vmName`
+```console
+$vmName = "ConferenceDemo" + $i
+Write-Host "Creating VM: " $vmName
+```
 
 8. Создайте виртуальную машину с помощью переменной $vmName:
 `New-AzVm -ResourceGroupName $resourceGroup -Name $vmName -Credential $adminCredential -Image UbuntuLTS`
@@ -35,7 +38,8 @@ Write-Host "Creating VM: " $vmName`
 9. Сохраните файл. Можно использовать меню "..." в правом верхнем углу редактора. Также поддерживаются распространенные сочетания клавиш для сохранения.
 
 # Готовый сценарий будет выглядеть так:
-`param([string]$resourceGroup)
+```console
+param([string]$resourceGroup)
 
 $adminCredential = Get-Credential -Message "Enter a username and password for the VM administrator."
 
@@ -44,7 +48,8 @@ For ($i = 1; $i -le 3; $i++)
     $vmName = "ConferenceDemo" + $i
     Write-Host "Creating VM: " $vmName
     New-AzVm -ResourceGroupName $resourceGroup -Name $vmName -Credential $adminCredential -Image UbuntuLTS
-}`
+}
+```
 
 
 Выполнение скрипта
